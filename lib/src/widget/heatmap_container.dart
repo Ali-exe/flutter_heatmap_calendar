@@ -29,6 +29,7 @@ class HeatMapContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var now = DateTime.now();
     return Padding(
       padding: margin ?? const EdgeInsets.all(2),
       child: GestureDetector(
@@ -36,6 +37,10 @@ class HeatMapContainer extends StatelessWidget {
           decoration: BoxDecoration(
             color: backgroundColor ?? HeatMapColor.defaultColor,
             borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 5)),
+            border: DateTime(now.year, now.month, now.day) ==
+                    DateTime(date.year, date.month, date.day)
+                ? Border.all(color: Colors.blue, width: 2)
+                : null,
           ),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
