@@ -148,6 +148,7 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
           icon: const Icon(
             Icons.arrow_back_ios,
             size: 14,
+            color: Colors.black,
           ),
           onPressed: () => changeMonth(-1),
         ),
@@ -159,6 +160,7 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
               (_currentDate?.year).toString(),
           style: TextStyle(
             fontSize: widget.monthFontSize ?? 12,
+            color: Colors.black,
           ),
         ),
 
@@ -167,6 +169,7 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
           icon: const Icon(
             Icons.arrow_forward_ios,
             size: 14,
+            color: Colors.black,
           ),
           onPressed: () => changeMonth(1),
         ),
