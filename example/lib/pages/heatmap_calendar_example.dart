@@ -44,6 +44,8 @@ class _HeatMapCalendarExample extends State<HeatMapCalendarExample> {
 
   @override
   Widget build(BuildContext context) {
+            Size v = const Size(42, 20);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Heatmap Calendar'),
@@ -59,7 +61,8 @@ class _HeatMapCalendarExample extends State<HeatMapCalendarExample> {
 
                 // HeatMapCalendar
                 child: HeatMapCalendar(
-                  flexible: true,
+                  size: v,
+                  flexible: false,
                   datasets: heatMapDatasets,
                   colorMode:
                       isOpacityMode ? ColorMode.opacity : ColorMode.color,

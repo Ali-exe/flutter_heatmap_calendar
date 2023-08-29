@@ -25,7 +25,7 @@ class HeatMapCalendar extends StatefulWidget {
   final DateTime? initDate;
 
   /// The double value of every block's size.
-  final double? size;
+  final Size size;
 
   /// The text color value of every blocks.
   final Color? textColor;
@@ -94,7 +94,7 @@ class HeatMapCalendar extends StatefulWidget {
     this.defaultColor,
     this.datasets,
     this.initDate,
-    this.size = 42,
+    this.size = const Size(42,42),
     this.fontSize,
     this.monthFontSize,
     this.textColor,
@@ -189,7 +189,7 @@ class _HeatMapCalendar extends State<HeatMapCalendar> {
               margin: EdgeInsets.only(
                   left: widget.margin?.left ?? 2,
                   right: widget.margin?.right ?? 2),
-              width: widget.size ?? 42,
+              width: widget.size.width,
               alignment: Alignment.center,
               child: Text(
                 label,

@@ -9,7 +9,7 @@ class HeatMapWeekText extends StatelessWidget {
   final double? fontSize;
 
   /// The double value of every block's size to fit the height.
-  final double? size;
+  final Size size;
 
   /// The color value of every font's color.
   final Color? fontColor;
@@ -18,7 +18,7 @@ class HeatMapWeekText extends StatelessWidget {
     Key? key,
     this.margin,
     this.fontSize,
-    this.size,
+    required this.size,
     this.fontColor,
   }) : super(key: key);
 
@@ -29,7 +29,7 @@ class HeatMapWeekText extends StatelessWidget {
       children: <Widget>[
         for (String label in DateUtil.WEEK_LABEL)
           Container(
-            height: size ?? 20,
+            height: size.height,
             margin: margin ?? const EdgeInsets.all(2.0),
             child: Text(
               label,

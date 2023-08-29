@@ -13,7 +13,7 @@ class HeatMapCalendarRow extends StatelessWidget {
   final DateTime endDate;
 
   /// The double value of every [HeatMapContainer]'s width and height.
-  final double? size;
+  final Size size;
 
   /// The double value of every [HeatMapContainer]'s fontSize.
   final double? fontSize;
@@ -70,7 +70,7 @@ class HeatMapCalendarRow extends StatelessWidget {
     required this.startDate,
     required this.endDate,
     required this.colorMode,
-    this.size,
+    required this.size,
     this.fontSize,
     this.defaultColor,
     this.colorsets,
@@ -96,8 +96,8 @@ class HeatMapCalendarRow extends StatelessWidget {
                       endDate.day - startDate.day != 7 &&
                       i > (endDate.weekday % 7))
               ? Container(
-                  width: size ?? 42,
-                  height: size ?? 42,
+                  width: size.width,
+                  height: size.height,
                   margin: margin ?? const EdgeInsets.all(2),
                 )
               // If the day is not a empty one then create HeatMapContainer.

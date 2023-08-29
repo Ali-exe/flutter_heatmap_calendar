@@ -21,7 +21,7 @@ class HeatMapCalendarPage extends StatelessWidget {
   final bool? flexible;
 
   /// The double value of every block's width and height.
-  final double? size;
+  final Size size;
 
   /// The double value of every block's fontSize.
   final double? fontSize;
@@ -66,7 +66,7 @@ class HeatMapCalendarPage extends StatelessWidget {
     required this.baseDate,
     required this.colorMode,
     this.flexible,
-    this.size,
+    required this.size,
     this.fontSize,
     this.defaultColor,
     this.textColor,

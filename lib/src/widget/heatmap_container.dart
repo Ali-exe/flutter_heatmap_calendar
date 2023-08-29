@@ -4,7 +4,7 @@ import '../data/heatmap_color.dart';
 class HeatMapContainer extends StatelessWidget {
   final DateTime date;
   final int? score;
-  final double? size;
+  final Size size;
   final double? fontSize;
   final double? borderRadius;
   final Color? backgroundColor;
@@ -19,7 +19,7 @@ class HeatMapContainer extends StatelessWidget {
     required this.date,
     this.score,
     this.margin,
-    this.size,
+    required this.size,
     this.fontSize,
     this.borderRadius,
     this.backgroundColor,
@@ -36,6 +36,8 @@ class HeatMapContainer extends StatelessWidget {
       padding: margin ?? const EdgeInsets.all(2),
       child: GestureDetector(
         child: Container(
+          width: size.width,
+          height: size.height,
           decoration: BoxDecoration(
             color: backgroundColor ?? HeatMapColor.defaultColor,
             borderRadius: BorderRadius.all(Radius.circular(borderRadius ?? 5)),
@@ -47,8 +49,8 @@ class HeatMapContainer extends StatelessWidget {
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
             curve: Curves.easeInOutQuad,
-            width: size,
-            height: size,
+            width: size.width,
+            height: size.height,
             alignment: Alignment.center,
             child: (showText ?? true)
                 ? Column(
@@ -60,13 +62,15 @@ class HeatMapContainer extends StatelessWidget {
                             color: textColor ?? const Color(0xFF8A8A8A),
                             fontSize: fontSize),
                       ),
-                      if (score != null) Text(
-                        "${score}m",
-                        style: TextStyle(
-                            color: textColor ?? const Color(0xFF8A8A8A),
-                            fontSize: 9),
-                      ) else ...[],
-                      
+                      if (score != null)
+                        Text(
+                          "${score}m",
+                          style: TextStyle(
+                              color: textColor ?? const Color(0xFF8A8A8A),
+                              fontSize: 9),
+                        )
+                      else
+                        ...[],
                     ],
                   )
                 : null,
