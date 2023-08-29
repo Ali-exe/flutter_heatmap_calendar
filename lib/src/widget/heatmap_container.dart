@@ -60,12 +60,13 @@ class HeatMapContainer extends StatelessWidget {
                             color: textColor ?? const Color(0xFF8A8A8A),
                             fontSize: fontSize),
                       ),
-                      Text(
-                        score != null ? "${score}m" : "",
+                      if (score != null) Text(
+                        "${score}m",
                         style: TextStyle(
                             color: textColor ?? const Color(0xFF8A8A8A),
                             fontSize: 9),
-                      ),
+                      ) else ...[],
+                      
                     ],
                   )
                 : null,
