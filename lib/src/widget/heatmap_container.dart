@@ -3,6 +3,7 @@ import '../data/heatmap_color.dart';
 
 class HeatMapContainer extends StatelessWidget {
   final DateTime date;
+  final int? score;
   final double? size;
   final double? fontSize;
   final double? borderRadius;
@@ -16,6 +17,7 @@ class HeatMapContainer extends StatelessWidget {
   const HeatMapContainer({
     Key? key,
     required this.date,
+    this.score,
     this.margin,
     this.size,
     this.fontSize,
@@ -49,11 +51,22 @@ class HeatMapContainer extends StatelessWidget {
             height: size,
             alignment: Alignment.center,
             child: (showText ?? true)
-                ? Text(
-                    date.day.toString(),
-                    style: TextStyle(
-                        color: textColor ?? const Color(0xFF8A8A8A),
-                        fontSize: fontSize),
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        date.day.toString(),
+                        style: TextStyle(
+                            color: textColor ?? const Color(0xFF8A8A8A),
+                            fontSize: fontSize),
+                      ),
+                      Text(
+                        score != null ? "${score}m" : "",
+                        style: TextStyle(
+                            color: textColor ?? const Color(0xFF8A8A8A),
+                            fontSize: 9),
+                      ),
+                    ],
                   )
                 : null,
             decoration: BoxDecoration(

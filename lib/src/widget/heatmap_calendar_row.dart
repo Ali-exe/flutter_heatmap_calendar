@@ -149,6 +149,8 @@ class HeatMapCalendarRow extends StatelessWidget {
                                   startDate.month,
                                   startDate.day + i - (startDate.weekday % 7))])
                       : null,
+                  score: datasets![DateTime(startDate.year, startDate.month,
+                      startDate.day + i - (startDate.weekday % 7))],
                 ),
         ),
         super(key: key);
